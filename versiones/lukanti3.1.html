@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html>
+<title>Mueganitos</title>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<style>
+/* icon bar */
+body {margin:0;}
+
+.icon-bar {
+  width: 100%;
+  background-color: white;
+  overflow: auto;
+}
+
+.icon-bar a {
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  color: teal;
+  font-size: 30px;
+}
+
+.icon-bar a:hover {
+  background-color:  #e6ffff;
+}
+
+.active {
+  background-color: #e6ffff;
+}
+
+/* navbar principal */
+/* Style the navbar */
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Navbar links */
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+
+/* Overlay inicio */
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+  
+}
+
+#text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+/* Overlay final */
+
+/* alerta inicio azul #0074B3 rojo  */
+.alert1 {
+  padding: 20px;
+  background-color: #9B1A14;
+  color: white;
+}
+
+.alert2 {
+  padding: 20px;
+  background-color: #0074B3;
+  color: white;
+}
+
+.alert3 {
+  padding: 20px;
+  background-color: #016737;
+  color: white;
+}
+
+.alert4 {
+  padding: 20px;
+  background-color: #F9B500;
+  color: white;
+}
+
+.closebtn1 {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn1:hover {
+  color: black;
+}
+/* alerta final */
+
+
+/* inicio notas */
+div {
+  margin-bottom: 5px;
+  padding: 4px 10px;
+}
+
+.danger {
+  background-color: #ffdddd;
+  border-left: 6px solid #f44336;
+}
+
+.success {
+  background-color: #ddffdd;
+  border-left: 6px solid #4CAF50;
+}
+
+.info {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196F3;
+}
+
+
+.warning {
+  background-color: #ffffcc;
+  border-left: 6px solid #ffeb3b;
+}
+/* final notas*/
+
+/* inicio */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.topnav a:hover {
+  background-color: #008080;
+  color: white;
+}
+
+.topnav a.active {
+  background-color: #016737;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+/* final */
+
+/* inicio  card flip*/
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #ffffff;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+/* final card flip*/
+
+/* inicio */
+{
+  box-sizing: border-box;
+}
+
+/* style the container */
+.container {
+  position: relative;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px 0 30px 0;
+} 
+
+/* style inputs and link buttons */
+input,
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+input:hover,
+.btn:hover {
+  opacity: 1;
+}
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
+  background-color: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background-color: #55ACEE;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+/* style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Two-column layout */
+.col {
+  float: left;
+  width: 50%;
+  margin: auto;
+  padding: 0 50px;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* vertical line */
+.vl {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: 2px solid #ddd;
+  height: 175px;
+}
+
+/* text inside the vertical line */
+.vl-innertext {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 8px 10px;
+}
+
+/* hide some text on medium and large screens */
+.hide-md-lg {
+  display: none;
+}
+
+/* bottom container */
+.bottom-container {
+  text-align: center;
+  background-color: #666;
+  border-radius: 0px 0px 4px 4px;
+}
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+  .col {
+    width: 100%;
+    margin-top: 0;
+  }
+  /* hide the vertical line */
+  .vl {
+    display: none;
+  }
+  /* show the hidden text on small screens */
+  .hide-md-lg {
+    display: block;
+    text-align: center;
+  }
+}
+/* final */
+
+/* inicio */
+/* final */
+
+/* inicio */
+/* final */
+
+</style>
+</head>
+
+<body>
+
+<!-- Side Navigation -->
+<nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
+  <button class="w3-bar-item w3-button" onclick="w3_close()"> <i class="fa fa-remove"></i></button>
+  <img src="https://pbs.twimg.com/media/EgOAflqXoAEM0wN?format=png&name=240x240" style="width:30%;" class="w3-animate-zoom">
+  <a href="#" class="w3-bar-item w3-button">Sobre Lukanti</a>
+  <a href="#" class="w3-bar-item w3-button">Libro</a>
+  <a href="#" class="w3-bar-item w3-button">Productos</a>
+  <a href="#" class="w3-bar-item w3-button">Contacto</a>
+  <a href="#" class="w3-bar-item w3-button">Donación</a>
+  <h1 class="w3-xxxlarge w3-text-theme">Natural y orgánico</h1>
+   </nav>
+<!-- Header -->
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i> 
+  <div class="w3-center">
+   <img src="https://pbs.twimg.com/media/EgOAiOuX0AAdZ76?format=png&name=small" style="width:30%;" class="w3-animate-zoom">
+   <h1 class="w3-xxxlarge w3-animate-bottom">LUKANTI</h1> 
+   <p>Descubre los mejores secretos de la naturaleza. <br>Lukanti es el principal destino para descrubrir los tips, secretos, recetas y más información de útilidad para tos naturales para el bienestar de tú familia</p>
+   <br>
+  </header>
+
+<div class="topnav" id="myTopnav">
+  <a href="#home" class="active">Inicio</a>
+  <a href="#news">Belleza</a>
+  <a href="#contact">Alimentos</a>
+  <a href="#about">Hogar</a>
+  <a href="#about">Salud</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    
+  </a>
+</div>
+
+
+
+<div class="alert1">
+  <span class="closebtn1" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>¡Promoción!</strong> Envio gratis en compras mayores a $300.00 pesos mexicanos
+</div>
+
+
+<div class="alert2">
+  <span class="closebtn1" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>¡Promoción!</strong> Envio gratis en compras mayores a $300.00 pesos mexicanos
+</div>
+
+<div class="alert3">
+  <span class="closebtn1" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>¡Promoción!</strong> Envio gratis en compras mayores a $300.00 pesos mexicanos
+</div>
+
+
+<div class="alert4">
+  <span class="closebtn1" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>¡Promoción!</strong> Envio gratis en compras mayores a $300.00 pesos mexicanos
+</div>
+
+
+<h2>Responsive Social Login Form</h2>
+<p>Resize the browser window to see the responsive effect. When the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other.</p>
+
+<div class="container">
+  <form action="/action_page.php">
+    <div class="row">
+      <h2 style="text-align:center">Login con Red social o manualmente</h2>
+      <div class="vl">
+        <span class="vl-innertext">o</span>
+      </div>
+
+      <div class="col">
+        <a href="#" class="fb btn">
+          <i class="fa fa-facebook fa-fw"></i> Iniciar con Facebook
+         </a>
+        <a href="#" class="twitter btn">
+          <i class="fa fa-twitter fa-fw"></i> Iniciar con Twitter
+        </a>
+        <a href="#" class="google btn"><i class="fa fa-google fa-fw">
+          </i> Iniciar con Google
+        </a>
+      </div>
+
+      <div class="col">
+        <div class="hide-md-lg">
+          <p>Ingresar con usar name</p>
+        </div>
+
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="submit" value="Iniciar">
+      </div>
+      
+    </div>
+  </form>
+</div>
+
+<div class="bottom-container">
+  <div class="row">
+    <div class="col">
+      <a href="#" style="color:white" class="btn">Registrarse</a>
+    </div>
+    <div class="col">
+      <a href="#" style="color:white" class="btn">¿Olvidaste la contraseña?</a>
+    </div>
+  </div>
+</div>
+
+
+
+<hr>
+<h2 class="w3-center">Lectura de la semana</h2>
+<p> </p>
+<button onclick="myAccFunc('Demo1')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align"><i class="fa fa-caret-right" aria-hidden="true"></i> Consumo </button>
+<div id="Demo1" class="w3-hide">
+  <div class="w3-container">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+</div>
+<button onclick="myAccFunc('Demo2')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align"><i class="fa fa-arrow-right" aria-hidden="true"></i> Recomendaciones</button>
+<div id="Demo2" class="w3-hide">
+  <a href="#" class="w3-button w3-block w3-left-align">Producto</a>
+  <a href="#" class="w3-button w3-block w3-left-align">Otro producto</a>
+  <a href="#" class="w3-button w3-block w3-left-align">Otro producto más</a>
+</div>
+<button onclick="myAccFunc('Demo3')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Historias</button>
+<div id="Demo3" class="w3-hide w3-black">
+  <div class="w3-container">
+    <p>La historia de Juanita Lopez</p>
+    <img src="https://www.w3schools.com/w3css/img_snowtops.jpg" style="width:30%;" class="w3-animate-zoom">
+    <p>Foto</p>
+  </div>
+</div>
+
+
+<div class="flip-card">
+        <div class="flip-card-inner">
+        <div class="flip-card-front">
+        <img src="https://pbs.twimg.com/media/EJVuFd1XUAAewUq?format=jpg&name=small" alt="Lukanti" style="width:300px;height:300px;">
+</div>
+
+    <div class="flip-card-back">
+      <h1>Vaporizadores</h1> 
+      <p>5 litro</p> 
+      <p>Sabor lima limon</p>
+      <h2>$50.00</h2>
+    </div>
+        </div>
+        </div>
+
+
+
+
+<div class="w3-center">
+
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="responsive">
+    </div>
+    <div class="flip-card-back" class="responsive">
+     <h1>Producto 2</h1> 
+      <p>Caracteristicas</p> 
+      <p>Precio $50.00</p>
+    </div>
+  </div>
+</div>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="responsive">
+    </div>
+    <div class="flip-card-back" class="responsive">
+     <h1>Producto 2</h1> 
+      <p>Caracteristicas</p> 
+      <p>Precio $50.00</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="responsive">
+    </div>
+    <div class="flip-card-back" class="responsive">
+     <h1>Producto 3</h1> 
+      <p>Caracteristicas</p> 
+      <p>Precio $50.00</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+<hr>
+<h2 class="w3-center">Propiedades y beneficios de tal cosa</h2>
+<p><i class="fa fa-clock-o" aria-hidden="true"></i>  Tiempo de lectura 1´</p>
+<p><i class="fa fa-pencil" aria-hidden="true"></i> Autor: Eli Padilla.  </p>
+
+<div class="w3-border">
+<div class="w3-bar w3-theme">
+  <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'London')">Jengibre</button>
+  <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Paris')">Curcuma</button>
+  <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Tokyo')">Vitamina C</button>
+</div>
+
+<div id="London" class="w3-container city w3-animate-opacity">
+  <h2>Jengribre</h2>
+  <p>El jengibre procede de China y la India, donde se ha utilizado este ingrediente tanto en el mundo de la medicina como en la gastronomía asiática. Uno de los aspectos que más llaman la atención del jengibre son las excelentes propiedades que tiene junto con su sabor tan característico, que puede hacer que un plato tenga un sabor completamente diferente.</p>
+  <p>Del jengibre se puede utilizar absolutamente todo. La raíz se utiliza tanto en la cocina como en la medicina y, las hojas del jengibre, a veces son utilizadas para preparar una ensalada con un sabor y una textura variada. La raíz, o mejor dicho los rizomas, se caracterizan por ser unos tallos regordetes subterráneos que se pueden usar frescos, cocidos o para realizar el té.</p>
+</div>
+
+<div id="Paris" class="w3-container city w3-animate-opacity">
+  <h2>Curcuma</h2>
+  <p>Si nos centramos únicamente en los beneficios que ofrece el jengibre a la salud destaca su facultad de aliviar las náuseas (es uno de sus beneficios más conocidos) y, según los estudios que se van realizando, también destacaría sus efectos analgésicos como los gingeroles y los fenoles. Algunos afirman que, simplemente, la ciencia ha confirmado ahora lo que hace siglos ya se sabía, que la raíz del jengibre reduce el dolor.</p> 
+  <p>Tiene efecto anti inflamatorio y contribuye a prevenir las úlceras estomacales y la acidez. Mejora los problemas circulatorios, para los dolores menstruales, la migraña y los dolores de la artritis.</p>
+</div>
+
+<div id="Tokyo" class="w3-container city w3-animate-opacity">
+  <h2>Vitamina C</h2>
+  <p>Los tratamientos de jengibre se consideran un tratamiento homeopático, pero la comunidad médica tradicional ya está realizando investigaciones sobre las propiedades de esta planta. El té de jengibre tiene un sabor sorprendente, algo picante.</p>
+  <p>En este caso, la combinación de ambas ofrece vitamina C, antioxidante y pocas calorías. Y, el jengibre concretamente, acelera el funcionamiento del metabolismo que se traduce en un aumento de la quema de calorías y la eliminación de la grasa.</p>
+</div>
+</div>
+<p>Ultima actualización 24, agosto del 2020</p>
+<p w3-center>O si prefieres escuchar la nota aqui esta el audio, disfrutalo</p>
+<audio controls>
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="horse.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<p>¿Te gusto? compartelo 
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+</span>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-pinterest-p fa-stack-1x fa-inverse"></i>
+</span>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-whatsapp fa-stack-1x fa-inverse"></i>
+</span>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+</span>
+</p>
+
+
+
+
+<br>
+
+<!-- promo del  día-->
+<div class="w3-center">
+<div id="overlay" onclick="off()">
+  <div id="text">Algun consejo o imagen </div>
+</div>
+
+<div style="padding:20px ">
+    <button onclick="on()">Promoción del día</button>
+</div>
+</div>
+
+
+<!-- frase del día-->
+<div class="w3-center">
+<button onclick="typeWriter()">Frase del día </button>
+<p id="demo1"></p>
+</div>
+
+
+
+<!-- icon-bar -->
+<div class="icon-bar">
+  <a class="active" href="#"><i class="fa fa-home"></i></a> 
+  <a href="#"><i class="fa fa-search"></i></a> 
+  <a href="#"><i class="fa fa-envelope"></i></a> 
+  <a href="#"><i class="fa fa-cutlery"></i></a>
+  <a href="#"><i class="fa fa-book"></i></a> 
+  
+ 
+</div>
+
+
+
+
+
+<div class="w3-container">
+
+
+
+<div class="w3-row-padding w3-center w3-margin-top">
+<div class="w3-third">
+  <div class="w3-card w3-container" style="min-height:460px">
+  <h3>Belleza</h3><br>
+  <i class="fa fa-leaf w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+  <p>Built-in responsiveness</p>
+  <p>Mobile first fluid grid</p>
+  <p>Fits any screen sizes</p>
+  <p>PC Tablet and Mobile</p>
+  </div>
+</div>
+
+<div class="w3-third">
+  <div class="w3-card w3-container" style="min-height:460px">
+  <h3>Comida</h3><br>
+  <i class="fa fa-heart-o w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+  <p>Standard CSS only</p>
+  <p>Easy to learn</p>
+  <p>No need for jQuery</p>
+  <p>No JavaScript library</p>
+  </div>
+</div>
+
+<div class="w3-third">
+  <div class="w3-card w3-container" style="min-height:460px">
+  <h3>Hogar</h3><br>
+  <i class="fa fa-coffee w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+  <p>Paper like design</p>
+  <p>Bold colors and shadows</p>
+  <p>Equal across platforms</p>
+  <p>Equal across devices</p>
+  </div>
+</div>
+</div>
+
+<div class="w3-container">
+<hr>
+<div class="w3-center">
+  <h2>Recetas de cocina facil</h2>
+</div>
+
+<div class="w3-row">
+  <div class="w3-col w3-container m2 w3-red"><p>Lunes</p></div>
+  <div class="w3-col w3-container m2 w3-blue"><p>Martes</p></div>
+  <div class="w3-col w3-container m2 w3-blue-grey"><p>Miércoles</p></div>
+  <div class="w3-col w3-container m2 w3-teal"><p>Jueves</p></div>
+  <div class="w3-col w3-container m2 w3-yellow"><p>Viernes</p></div>
+  <div class="w3-col w3-container m2 w3-orange"><p>Sábado</p></div>
+  <div class="w3-col w3-container m2 w3-pink"><p>Domingo</p></div>
+</div>
+
+<div class="w3-container">
+<hr>
+<div class="w3-center">
+  <h2>Recetas de cocina gourmet</h2>
+</div>
+
+<div class="w3-row">
+  <div class="w3-col w3-container m2 w3-red"><p>Lunes</p></div>
+  <div class="w3-col w3-container m2 w3-blue"><p>Martes</p></div>
+  <div class="w3-col w3-container m2 w3-blue-grey"><p>Miércoles</p></div>
+
+</div>
+
+
+<hr>
+
+<!-- Boton del Modal -->
+<div class="w3-padding-32 ">
+      <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey w3-center" onclick="document.getElementById('id01').style.display='block'" style="font-weight:900;">Reto se natural en 3 semanas</button>
+    </div>
+  </div>
+  
+<!-- Modal -->
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-top">
+      <header class="w3-container w3-theme-l1"> 
+        <span onclick="document.getElementById('id01').style.display='none'"
+        class="w3-button w3-display-topright">×</span>
+        <h4>Participa en el reto de 3 semanas</h4>
+        <h5>Un tip cada día directo a tu email o whatsapp <i class="fa fa-smile-o"></i></h5>
+      </header>
+      <div class="w3-padding">
+        <p>No requieres de mucha inversión</p>
+        <p>Inscribete <a class="w3-btn" href="#">aqui</a> para más información</p>
+      </div>
+      <footer class="w3-container w3-theme-l1">
+        <p>Descarga el eBook</p>
+      </footer>
+    </div>
+</div>
+
+
+<div class="w3-row w3-border">
+  <div class="w3-third w3-container w3-green">
+    <h5>Té</h5>  
+      </div>
+  <div class="w3-third w3-container">
+    <h5>Limon</h5>  
+  </div>
+  <div class="w3-third w3-container">
+    <h5>verde</h5>  
+  </div>
+</div>
+<br>
+
+
+<div class="alert1">
+  <span class="closebtn1" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>¡Promoción!</strong> Envio gratis en compras mayores a $300.00 pesos mexicanos
+</div>
+
+
+<div class="w3-container w3-center">
+  <hr>
+  <h3>Fotos</h3>
+</div>
+
+<div class="w3-row-padding"> 
+
+<div class="w3-third">
+<div class="w3-card">
+  <img src="/w3images/car.jpg" alt="Car" style="width:100%">
+  <div class="w3-container">
+  <p>Foto de ejemplo</p>
+  </div>
+</div>
+</div>
+
+<div class="w3-third">
+<div class="w3-card-4">
+  <img src="/w3images/car.jpg" alt="Car" style="width:100%">
+  <div class="w3-container">
+  <p>Foto de ejemplo</p>
+  </div>
+</div>
+</div>
+
+<div class="w3-third">
+<div class="w3-card-4">
+  <img src="/w3images/car.jpg" alt="Car" style="width:100%">
+  <div class="w3-container">
+  <p>Foto de ejemplo</p>
+  </div>
+</div>
+</div>
+</div>
+<div class="w3-container">
+  <hr>
+  <div class="w3-center">
+    <h2>Propiedades</h2>
+    <p w3-class="w3-large">Lo recomendado por edad, peso y actividades</p>
+  </div>
+<div class="w3-responsive w3-card-4">
+<table class="w3-table w3-striped w3-bordered">
+<thead>
+<tr class="w3-theme">
+  <th>Planta</th>
+  <th>Consumo</th>
+  <th>Caracteristicas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Jill</td>
+  <td>Smith</td>
+  <td>50</td>
+</tr>
+<tr class="w3-white">
+  <td>Eve</td>
+  <td>Jackson</td>
+  <td>94</td>
+</tr>
+<tr>
+  <td>Adam</td>
+  <td>Johnson</td>
+  <td>67</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<hr>
+
+<h2 class="w3-center">¿Comó esta tu energía hoy?</h2>
+<div class="w3-container">
+
+<div class="w3-light-gray">
+  <div id="myBar" class="w3-center w3-padding w3-theme" style="width:10%">10%</div>
+</div><br>
+<button class="w3-btn w3-theme" onclick="move()">Calcula tu nivel de energía</button> 
+</div>
+<hr>
+
+<h2 class="w3-center">Fotos</h2>
+<div class="w3-content" style="max-width:800px;position:relative">
+
+<img class="mySlides w3-animate-opacity" src="https://www.w3schools.com/w3images/snow.jpg" style="width:100%">
+<img class="mySlides w3-animate-opacity" src="https://www.w3schools.com/w3images/lights.jpg" style="width:100%">
+<img class="mySlides w3-animate-opacity" src="https://www.w3schools.com/w3images/mountains.jpg" style="width:100%">
+<img class="mySlides w3-animate-opacity" src="https://www.w3schools.com/w3images/forest.jpg" style="width:100%">
+
+<a class="w3-button w3-hover-dark-grey" style="position:absolute;top:45%;left:0;" onclick="plusDivs(-1)">❮</a>
+<a class="w3-button w3-hover-dark-grey" style="position:absolute;top:45%;right:0;" onclick="plusDivs(+1)">❯</a>
+</div>
+
+
+<!-- notas -->
+
+<div class="danger">
+  <p><strong>Danger!</strong> No consumas mucho te de jengibr, te puede dar algo</p>
+</div>
+
+<div class="success">
+  <p><strong>Success!</strong> Si lo tomas todos los días</p>
+</div>
+
+<div class="info">
+  <p><strong>Info!</strong> Sirve para tal cosa</p>
+</div>
+
+<div class="warning">
+  <p><strong>Warning!</strong> No lo mezcles con café , te dará sueño</p>
+</div>
+  
+<hr>
+<h2 class="w3-center">Lectura de la semana</h2>
+<p> </p>
+<button onclick="myAccFunc('Demo1')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align"><i class="fa fa-caret-right" aria-hidden="true"></i> Consumo </button>
+<div id="Demo1" class="w3-hide">
+  <div class="w3-container">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+</div>
+<button onclick="myAccFunc('Demo2')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align"><i class="fa fa-arrow-right" aria-hidden="true"></i> Recomendaciones</button>
+<div id="Demo2" class="w3-hide">
+  <a href="#" class="w3-button w3-block w3-left-align">Producto</a>
+  <a href="#" class="w3-button w3-block w3-left-align">Otro producto</a>
+  <a href="#" class="w3-button w3-block w3-left-align">Otro producto más</a>
+</div>
+<button onclick="myAccFunc('Demo3')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Historias</button>
+<div id="Demo3" class="w3-hide w3-black">
+  <div class="w3-container">
+    <p>La historia de Juanita Lopez</p>
+    <img src="https://www.w3schools.com/w3css/img_snowtops.jpg" style="width:30%;" class="w3-animate-zoom">
+    <p>Foto</p>
+  </div>
+</div>
+
+<hr>
+<h2 class="w3-center">Propiedades y bebeficios de tal cosa</h2>
+<p><i class="fa fa-clock-o" aria-hidden="true"></i> Tiempo de lectura 1´</p>
+ <i class="fa fa-graduation-cap" aria-hidden="true"></i> 
+
+<div class="w3-border">
+<div class="w3-bar w3-theme">
+  <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'London')">Jengibre</button>
+  <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Paris')">Curcuma</button>
+  <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Tokyo')">Vitamina C</button>
+</div>
+
+<div id="London" class="w3-container city w3-animate-opacity">
+  <h2>Jengribre</h2>
+  <p>El jengibre procede de China y la India, donde se ha utilizado este ingrediente tanto en el mundo de la medicina como en la gastronomía asiática. Uno de los aspectos que más llaman la atención del jengibre son las excelentes propiedades que tiene junto con su sabor tan característico, que puede hacer que un plato tenga un sabor completamente diferente.</p>
+  <p>Del jengibre se puede utilizar absolutamente todo. La raíz se utiliza tanto en la cocina como en la medicina y, las hojas del jengibre, a veces son utilizadas para preparar una ensalada con un sabor y una textura variada. La raíz, o mejor dicho los rizomas, se caracterizan por ser unos tallos regordetes subterráneos que se pueden usar frescos, cocidos o para realizar el té.</p>
+</div>
+
+<div id="Paris" class="w3-container city w3-animate-opacity">
+  <h2>Curcuma</h2>
+  <p>Si nos centramos únicamente en los beneficios que ofrece el jengibre a la salud destaca su facultad de aliviar las náuseas (es uno de sus beneficios más conocidos) y, según los estudios que se van realizando, también destacaría sus efectos analgésicos como los gingeroles y los fenoles. Algunos afirman que, simplemente, la ciencia ha confirmado ahora lo que hace siglos ya se sabía, que la raíz del jengibre reduce el dolor.</p> 
+  <p>Tiene efecto anti inflamatorio y contribuye a prevenir las úlceras estomacales y la acidez. Mejora los problemas circulatorios, para los dolores menstruales, la migraña y los dolores de la artritis.</p>
+</div>
+
+<div id="Tokyo" class="w3-container city w3-animate-opacity">
+  <h2>Vitamina C</h2>
+  <p>Los tratamientos de jengibre se consideran un tratamiento homeopático, pero la comunidad médica tradicional ya está realizando investigaciones sobre las propiedades de esta planta. El té de jengibre tiene un sabor sorprendente, algo picante.</p>
+  <p>En este caso, la combinación de ambas ofrece vitamina C, antioxidante y pocas calorías. Y, el jengibre concretamente, acelera el funcionamiento del metabolismo que se traduce en un aumento de la quema de calorías y la eliminación de la grasa.</p>
+</div>
+</div>
+
+<p>¿Te gusto? compartelo 
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+</span>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-pinterest-p fa-stack-1x fa-inverse"></i>
+</span>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-whatsapp fa-stack-1x fa-inverse"></i>
+</span>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+</span>
+</p>
+
+<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+
+<div class="w3-center">
+<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnotes%2Fmueganitos-libros-did%25C3%25A1cticos%2Fproceso-de-compra%2F268048617161889%2F&width=500" width="500" height="484" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+</div>
+
+<br>
+
+<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FMueganitosm6%2Fposts%2F388670258433057&show_text=false&width=552&height=309&appId" width="552" height="309" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+</div>
+
+<br>
+
+<!-- promo del  día-->
+<div class="w3-center">
+<div id="overlay" onclick="off()">
+  <div id="text">Algun consejo o imagen </div>
+</div>
+
+<div style="padding:20px ">
+    <button onclick="on()">Promoción del día</button>
+</div>
+</div>
+
+
+<!-- frase del día-->
+<div class="w3-center">
+<button onclick="typeWriter()">Frase del día </button>
+<p id="demo1"></p>
+</div>
+
+<hr>
+<div class="w3-center">
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a href="#" class="w3-bar-item w3-button w3-hover-theme">«</a>
+      <a href="#" class="w3-bar-item w3-button w3-theme w3-hover-theme">1</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-theme">2</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-theme">3</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-theme">4</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-theme">5</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-theme">»</a>
+    </div>
+  </div>
+</div>
+<br>
+
+<!-- icon-bar -->
+<div class="icon-bar">
+  <a class="active" href="#"><i class="fa fa-home"></i></a> 
+  <a href="#"><i class="fa fa-search"></i></a> 
+  <a href="#"><i class="fa fa-envelope"></i></a> 
+  <a href="#"><i class="fa fa-cutlery"></i></a>
+  <a href="#"><i class="fa fa-book"></i></a> 
+  
+ 
+</div>
+
+
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-dark w3-padding-16 w3-center">
+  <h6>Lukanti</h6> 
+  <p >Lukayotl es naturaleza y nanti es madre en náhuatl </p>
+ <p>Hecho con el <i class="fa fa-heart" aria-hidden="true"></i> de la  <i class="fa fa-globe" aria-hidden="true"></i> y <i class="fa fa-leaf" aria-hidden="true"></i> <i class="fa fa-pagelines" aria-hidden="true"></i> para nosotros </p>
+  <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
+    <span class="w3-text w3-theme-light w3-padding">Arriba</span>    
+    <a class="w3-text-white" href="#myHeader"><span class="w3-xlarge">
+    <i class="fa fa-chevron-circle-up"></i></span></a>
+  </div>
+</footer>
+
+
+
+
+<!-- Script for Sidebar, Tabs, Accordions, Progress bars and slideshows -->
+<script>
+// Side navigation
+function w3_open() {
+  var x = document.getElementById("mySidebar");
+  x.style.width = "100%";
+  x.style.fontSize = "40px";
+  x.style.paddingTop = "10%";
+  x.style.display = "block";
+}
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+
+// Tabs
+function openCity(evt, cityName) {
+  var i;
+  var x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  var activebtn = document.getElementsByClassName("testbtn");
+  for (i = 0; i < x.length; i++) {
+    activebtn[i].className = activebtn[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " w3-dark-grey";
+}
+
+var mybtn = document.getElementsByClassName("testbtn")[0];
+mybtn.click();
+
+// Accordions
+function myAccFunc(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// Slideshows
+var slideIndex = 1;
+
+function plusDivs(n) {
+  slideIndex = slideIndex + n;
+  showDivs(slideIndex);
+}
+
+function showDivs(n) {
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+
+showDivs(1);
+
+// Progress Bars
+function move() {
+  var elem = document.getElementById("myBar");   
+  var width = 5;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width == 100) {
+      clearInterval(id);
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+      elem.innerHTML = width * 1  + '%';
+    }
+  }
+}
+
+// barra principal
+// When the user scrolls the page, execute myFunction
+window.onscroll = function() {myFunction()};
+
+// Get the navbar
+var navbar = document.getElementById("navbar");
+
+// Get the offset position of the navbar
+var sticky = navbar.offsetTop;
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+
+// promo 
+function on() {
+  document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+  document.getElementById("overlay").style.display = "none";
+}
+
+// frase del daí
+var i = 0;
+var txt = 'mas sabe el diablo por viejo que por diablo';
+var speed = 50;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo1").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+// myTopnav
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+// tip del día
+// tip del día
+</script>
+</body>
+</html>
